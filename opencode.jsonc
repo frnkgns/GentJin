@@ -1,0 +1,6 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "C:/Users/PHFrankEllisGines/AppData/Local/Programs/Clawd on Desk/resources/app.asar.unpacked/hooks/opencode-plugin",
+  ],
+}
