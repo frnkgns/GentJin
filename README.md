@@ -69,15 +69,28 @@ every conversation.
 
 ## Quick start
 
-1. Install and configure [OpenCode](https://opencode.ai/docs/).
-2. Add this repository's `AGENTS.md`, `skills/`, and `command/` files to your
-   global OpenCode configuration.
-3. Review `opencode.jsonc` before using it on another machine.
-4. Restart OpenCode so the new configuration is loaded.
+Clone the repository, open it in OpenCode, and let the agent install GENTJIN
+for you:
 
-> **Configuration note:** `opencode.jsonc` is an example configuration. Remove
-> or replace any local absolute plugin paths before sharing or installing it
-> elsewhere.
+```bash
+git clone https://github.com/frnkgns/GentJin.git
+cd GentJin
+opencode
+```
+
+Then enter this command in OpenCode:
+
+```text
+Install GENTJIN by following INSTALL.md
+```
+
+OpenCode will detect your operating system and configuration paths, create a
+permanent GENTJIN home at `<user-home>/.config/opencode/GentJin/`, preserve
+your existing setup, back up conflicts, and verify the installed files. Restart
+OpenCode when it finishes.
+
+For path detection, conflict handling, updates, and troubleshooting, see
+[INSTALL.md](INSTALL.md).
 
 ## Commands
 
@@ -149,6 +162,7 @@ GENTJIN is designed to make the cautious path the easy path:
 ```text
 .
 ├── AGENTS.md                 Global behavior and project-agnostic rules
+├── INSTALL.md                Agent-assisted installation runbook
 ├── command/                  Reusable slash commands
 │   ├── cleanup.md
 │   ├── report.md
@@ -162,7 +176,7 @@ GENTJIN is designed to make the cautious path the easy path:
 │   ├── reporting/
 │   ├── security-review/
 │   └── work-in-progress/
-└── opencode.jsonc            Example OpenCode configuration
+└── opencode.jsonc            Local OpenCode configuration (not installed)
 ```
 
 ## Contributing
