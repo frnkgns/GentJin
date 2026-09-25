@@ -28,6 +28,34 @@ description: Manage persistent project knowledge in the user's Obsidian vault. U
 
 5. Keep global GENTJIN configuration project-agnostic.
 
+## Workflow Memory
+
+Use workflow memory for recurring commands, personal automation patterns, and repeatable computer tasks that are likely to be requested again. Keep cross-project workflows in the global GENTJIN workflow store and project-specific workflows in the current project vault.
+
+Use `~/Documents/ObsidianVault/gentjin/workflows/` as the default global workflow store unless project metadata provides an explicit override. Use `<project-knowledge-root>/workflows/` for project-specific workflows.
+
+Before acting on a recurring request:
+
+1. Search by intent, target, and expected outcome rather than exact wording.
+2. Read the smallest relevant workflow note.
+3. Check its scope, preconditions, status, and last-verified date.
+4. Reuse it only when the current project, environment, tools, and permissions still match.
+5. Treat current source code, current tool behavior, and explicit user instructions as authoritative when older knowledge conflicts.
+
+After a workflow succeeds, capture it only when it has likely future value. Keep one concise note with:
+
+- Status
+- Scope
+- Trigger phrases
+- Intent
+- Preconditions
+- Steps
+- Verification
+- Failure or revision notes
+- Last verified date
+
+If the user reports that a workflow did not work, do not mark it verified or create a duplicate. Preserve the failure reason, revise the existing note, and record the replacement only after verification. Never store full transcripts, credentials, secrets, one-off requests, or unverified guesses.
+
 ## Vault Initialization
 
 GENTJIN uses one canonical vault architecture.
@@ -70,6 +98,7 @@ Do not create empty notes solely to populate directories.
 │
 ├── sessions/
 ├── reports/
+├── workflows/
 └── _templates/
 ```
 

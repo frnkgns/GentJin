@@ -99,6 +99,7 @@ For path detection, conflict handling, updates, and troubleshooting, see
 | `/cleanup` | Finish current work with QA, cleanup, and a final report. |
 | `/report` | Turn the current work into a clear, evidence-based report. |
 | `/status` | See the branch, pending changes, active WIP, and open questions. |
+| `/task` | Handle a general-purpose software or laptop task, with reusable workflow memory and `vscode` and `dev` branches. |
 
 Commands are intentionally short entry points into larger, repeatable
 workflows.
@@ -166,7 +167,8 @@ GENTJIN is designed to make the cautious path the easy path:
 ├── command/                  Reusable slash commands
 │   ├── cleanup.md
 │   ├── report.md
-│   └── status.md
+│   ├── status.md
+│   └── task.md
 ├── skills/                   Focused, trigger-based workflows
 │   ├── cleanup/
 │   ├── database-review/
