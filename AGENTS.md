@@ -58,7 +58,12 @@
 - Do not load the entire vault. Prefer: Search → relevant notes → current source code/schema → work.
 - Current source code and schemas remain the primary implementation evidence.
 - Use the `knowledge-vault` skill for detailed discovery, initialization, normalization, migration, routing, and maintenance behavior.
+- When the user asks to open a note, node, or knowledge file, open it in **Obsidian** at the resolved knowledge root using `obsidian://open?path=<url-encoded absolute path>`. Do not substitute Explorer, VS Code, or a browser.
 - When the user names a project, resolve it from the vault and project index before acting. Never silently substitute a different project.
+- Keep a daily request log at `<project-knowledge-root>/sessions/YYYY-MM-DD.md`: append one line for every request, including trivial ones, and never rewrite it later.
+- Keep durable knowledge in its own note. Root causes, decisions, patterns, and unresolved questions get a note; everything else stays in the daily log only.
+- Never create one permanent note per request. A note for every ask buries the few that matter and breaks retrieval.
+- Search before writing, then update the existing topic note rather than creating a duplicate.
 
 ## Workflow Memory
 
