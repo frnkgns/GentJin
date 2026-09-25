@@ -95,10 +95,17 @@ files. Restart OpenCode when it finishes.
 For path detection, conflict handling, updates, and troubleshooting, see
 [INSTALL.md](INSTALL.md).
 
+After a `git pull` brings in newer GENTJIN files, run `/update-gentjin` to bring
+the installed copy back in line. It uses the manifest to back up and refresh
+managed files, asks before replacing anything you modified yourself, and
+re-checks the Knowledge Vault permission.
+
 ## Commands
 
 | Command | Use it when you want to... |
 | --- | --- |
+| `/install-gentjin` | Install GENTJIN into your global OpenCode configuration. |
+| `/update-gentjin` | Update the installed GENTJIN copy from a newer repository state. |
 | `/cleanup` | Finish current work with QA, cleanup, and a final report. |
 | `/report` | Turn the current work into a clear, evidence-based report. |
 | `/status` | See the branch, pending changes, active WIP, and open questions. |
@@ -174,9 +181,11 @@ GENTJIN is designed to make the cautious path the easy path:
 ├── INSTALL.md                Agent-assisted installation runbook
 ├── command/                  Reusable slash commands
 │   ├── cleanup.md
+│   ├── install-gentjin.md
 │   ├── report.md
 │   ├── status.md
-│   └── task.md
+│   ├── task.md
+│   └── update-gentjin.md
 ├── skills/                   Focused, trigger-based workflows
 │   ├── cleanup/
 │   ├── database-review/

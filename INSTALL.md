@@ -142,8 +142,12 @@ Record, for every installed file:
 - SHA-256 hash captured after the successful install or update;
 - manifest format version and update timestamp.
 
-Use only relative managed paths in the manifest. Do not record credentials or
-repository-owner paths.
+Use only relative managed paths in the manifest. Do not record credentials,
+repository-owner paths, machine names, usernames, or absolute user-profile
+paths. Refer to machine-specific locations with placeholders such as
+`<user-name>`, `<user-home>`, `<opencode-root>`, and `<project-root>`, or with
+`~/`. The user's own `opencode.jsonc` is never copied, so any real path inside it
+stays only in the user's file.
 
 Classify every destination file with this table:
 
@@ -288,8 +292,11 @@ the OpenCode root. At minimum, confirm:
 ```text
 AGENTS.md
 command/cleanup.md
+command/install-gentjin.md
 command/report.md
 command/status.md
+command/task.md
+command/update-gentjin.md
 skills/cleanup/SKILL.md
 skills/database-review/SKILL.md
 skills/frontend-review/SKILL.md

@@ -11,6 +11,18 @@
 - Use real application data instead of mock or placeholder data unless explicitly requested.
 - Handle loading, error, empty, nullable, and failure states appropriately.
 - Never expose secrets, credentials, tokens, or sensitive information.
+- Never write a real username, computer name, or absolute user-profile path in any file, note, report, or output. Use placeholders such as `<user-name>`, `<user-home>`, `<project-root>`, or `~/` instead.
+
+## Request Priority
+
+- The user's explicit request is the task. Do it first and do it directly.
+- Do not start unrequested background work, side quests, or extra verification while a
+  request is pending. Finish what was asked before anything else.
+- When something needs checking or researching in parallel, delegate it to a subagent and
+  report the result instead of stalling the user's request on the check.
+- Perform a direct action immediately when asked. Do not gate a simple action such as
+  opening a link, file, or app behind a health check or a confirmation step.
+- Never substitute a different task for the one requested.
 
 ## Safety
 
@@ -46,6 +58,23 @@
 - Do not load the entire vault. Prefer: Search → relevant notes → current source code/schema → work.
 - Current source code and schemas remain the primary implementation evidence.
 - Use the `knowledge-vault` skill for detailed discovery, initialization, normalization, migration, routing, and maintenance behavior.
+- When the user names a project, resolve it from the vault and project index before acting. Never silently substitute a different project.
+
+## Workflow Memory
+
+- Before repeating a personal or project task that was likely done before, search `~/Documents/KnowledgeVault/gentjin/workflows/` for a matching workflow and reuse it instead of rediscovering the steps. Use `<project-knowledge-root>/workflows/` for project-specific workflows.
+- After a recurring task succeeds and is verified, capture or update its note with status, scope, trigger phrases, intent, preconditions, steps, verification, and last-verified date.
+- Treat "remember this", "save this workflow", and "don't do that again" as workflow capture requests.
+- Search before creating a note, update the existing note instead of creating a duplicate, and mark failed workflows for revision while preserving the failure reason.
+- Never store credentials, secrets, full transcripts, one-off requests, or unverified guesses. Current source, current tools, and explicit user instructions always win over a stored workflow.
+
+## Knowledge Vault Apps
+
+- Treat `~/Documents/KnowledgeVault/` as the canonical Obsidian vault.
+- When the user asks to open a note, node, or knowledge file, search that vault for the title and open the match in **Obsidian** at the resolved knowledge root using `obsidian://open?path=<url-encoded absolute path>` so the running window focuses it. Do not substitute Explorer, VS Code, or a browser.
+- When several notes match, ask which one to open instead of guessing. When none match, say so and offer the closest matches.
+- If Obsidian is not installed, say so plainly, state the `~/Documents/KnowledgeVault/` folder path, and open that folder in File Explorer. Never install software unless the user explicitly asks.
+- If the user asks to install Obsidian, install it, register `~/Documents/KnowledgeVault/` as the vault, and verify the saved vault path afterward.
 
 ## Specialized Skills
 
