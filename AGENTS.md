@@ -20,6 +20,14 @@
 - Never modify production credentials, secrets, or environment files unless explicitly requested.
 - Never perform destructive operations when the target environment is uncertain.
 
+## OpenCode Configuration
+
+- Treat the user's global `opencode.jsonc` as user-owned configuration.
+- GENTJIN installation may add only the required Knowledge Vault permission defined in INSTALL.md.
+- Never delete, disable, replace, reorder, or downgrade an existing configuration entry without explicit user approval.
+- Ask for explicit user approval before resolving any conflict with existing configuration.
+- Back up the global file before an approved change and verify that unrelated settings are preserved.
+
 ## Project Discovery
 
 - Resolve the project from the nearest Git root, then project metadata, then the working directory.

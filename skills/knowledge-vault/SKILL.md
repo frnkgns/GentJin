@@ -66,7 +66,7 @@ When the legacy `~/Documents/ObsidianVault/` directory exists and `~/Documents/K
 4. Never rename, move, or modify the Obsidian application installation or unrelated application folders.
 5. Verify the destination, note count, and saved path after the rename.
 
-If the destination already exists, do not merge directories automatically; report the conflict and ask before proceeding. Installation itself must not perform this migration.
+If the destination already exists, do not merge directories automatically; report the conflict and ask before proceeding. GENTJIN installation may perform this same guarded migration only after explicit user approval, and only when Obsidian is closed.
 
 ## Vault Initialization
 

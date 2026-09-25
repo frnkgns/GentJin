@@ -86,8 +86,11 @@ Install GENTJIN by following INSTALL.md
 
 OpenCode will detect your operating system and configuration paths, create a
 permanent GENTJIN home at `<user-home>/.config/opencode/GentJin/`, preserve
-your existing setup, back up conflicts, and verify the installed files. Restart
-OpenCode when it finishes.
+your existing setup, add only the required Knowledge Vault permission to the
+global configuration, and, with explicit approval, rename a legacy
+`Documents/ObsidianVault` folder to `Documents/KnowledgeVault` so Obsidian keeps
+pointing at the same vault. It backs up conflicts and verifies the installed
+files. Restart OpenCode when it finishes.
 
 For path detection, conflict handling, updates, and troubleshooting, see
 [INSTALL.md](INSTALL.md).
@@ -153,6 +156,11 @@ GENTJIN is designed to make the cautious path the easy path:
 
 - Database access is read-only unless write access is explicitly authorized.
 - Commits, pushes, merges, and history changes require an explicit request.
+- Global OpenCode configuration is additive: GENTJIN adds only its required
+  Knowledge Vault permission and never removes existing entries.
+- The legacy `Documents/ObsidianVault` folder is renamed to
+  `Documents/KnowledgeVault` only with explicit approval, and Obsidian's saved
+  path is updated to follow it.
 - Credentials and environment values stay out of the repository.
 - Verification is reported honestly; checks are never claimed without evidence.
 - Real application data is preferred over mock or placeholder data.
