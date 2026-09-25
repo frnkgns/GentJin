@@ -117,7 +117,7 @@ of asking the agent to remember every rule at once.
 | `security-review` | Authentication, authorization, secrets, input, and data integrity. |
 | `git-workflow` | Guarded branches, commits, pull requests, and source control. |
 | `work-in-progress` | Pause, resume, and preserve unfinished implementation work. |
-| `knowledge-vault` | Project discovery and persistent knowledge in Obsidian. |
+| `knowledge-vault` | Project discovery and persistent knowledge in the Knowledge Vault. |
 | `reporting` | Concise console reports and durable vault documentation. |
 
 ## Built for the whole lifecycle

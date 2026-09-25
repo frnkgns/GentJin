@@ -29,7 +29,7 @@
 
 ## Knowledge
 
-- Resolve persistent project knowledge under `~/Documents/ObsidianVault/<project-identifier>/` unless overridden.
+- Resolve persistent project knowledge under `~/Documents/KnowledgeVault/<project-identifier>/` unless overridden.
 - GENTJIN uses the canonical project-vault architecture defined by the `knowledge-vault` skill.
 - If no project vault exists, initialize the canonical structure automatically.
 - If a project vault already exists, preserve all existing knowledge and normalize it by creating only missing canonical structure when needed.

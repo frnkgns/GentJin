@@ -236,14 +236,14 @@ unsafe conflicts. End with:
 Restart OpenCode to activate GENTJIN.
 ```
 
-## Preserve the knowledge vault
+## Preserve the Knowledge Vault
 
-Do not create, move, migrate, or delete an Obsidian vault during installation.
+Do not create, move, migrate, or delete a Knowledge Vault during installation.
 The `knowledge-vault` skill must continue to resolve project knowledge from the
 current user's home directory:
 
 ```text
-<user-home>/Documents/ObsidianVault/<project-identifier>/
+<user-home>/Documents/KnowledgeVault/<project-identifier>/
 ```
 
 Create or populate a project vault only when that project needs it and normal

@@ -1,6 +1,6 @@
 ---
 name: knowledge-vault
-description: Manage persistent project knowledge in the user's Obsidian vault. Use for project/vault discovery, note-first lookup, vault initialization and normalization, automatic knowledge capture, architecture and ADRs, reusable concepts and patterns, bugs, enhancements, investigations, work-in-progress, sessions, reports, and migration of existing project knowledge.
+description: Manage persistent project knowledge in the user's Knowledge Vault. Use for project/vault discovery, note-first lookup, vault initialization and normalization, automatic knowledge capture, architecture and ADRs, reusable concepts and patterns, bugs, enhancements, investigations, work-in-progress, sessions, reports, and migration of existing project knowledge.
 ---
 
 # Knowledge Vault
@@ -22,7 +22,7 @@ description: Manage persistent project knowledge in the user's Obsidian vault. U
    - collapse repeated hyphens
 4. Resolve the knowledge root to:
 
-   `~/Documents/ObsidianVault/<project-identifier>/`
+   `~/Documents/KnowledgeVault/<project-identifier>/`
 
    unless `.project-agent.md` explicitly overrides it.
 
@@ -32,7 +32,7 @@ description: Manage persistent project knowledge in the user's Obsidian vault. U
 
 Use workflow memory for recurring commands, personal automation patterns, and repeatable computer tasks that are likely to be requested again. Keep cross-project workflows in the global GENTJIN workflow store and project-specific workflows in the current project vault.
 
-Use `~/Documents/ObsidianVault/gentjin/workflows/` as the default global workflow store unless project metadata provides an explicit override. Use `<project-knowledge-root>/workflows/` for project-specific workflows.
+Use `~/Documents/KnowledgeVault/gentjin/workflows/` as the default global workflow store unless project metadata provides an explicit override. Use `<project-knowledge-root>/workflows/` for project-specific workflows.
 
 Before acting on a recurring request:
 
@@ -55,6 +55,18 @@ After a workflow succeeds, capture it only when it has likely future value. Keep
 - Last verified date
 
 If the user reports that a workflow did not work, do not mark it verified or create a duplicate. Preserve the failure reason, revise the existing note, and record the replacement only after verification. Never store full transcripts, credentials, secrets, one-off requests, or unverified guesses.
+
+## Knowledge Vault Migration
+
+When the legacy `~/Documents/ObsidianVault/` directory exists and `~/Documents/KnowledgeVault/` does not, and the user explicitly authorizes the migration:
+
+1. Verify the source is a directory and the destination does not exist.
+2. Rename only the vault directory; preserve all notes and hidden vault metadata.
+3. Update only the Obsidian application's saved vault path when explicitly authorized.
+4. Never rename, move, or modify the Obsidian application installation or unrelated application folders.
+5. Verify the destination, note count, and saved path after the rename.
+
+If the destination already exists, do not merge directories automatically; report the conflict and ask before proceeding. Installation itself must not perform this migration.
 
 ## Vault Initialization
 
