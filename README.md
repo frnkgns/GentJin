@@ -110,6 +110,7 @@ re-checks the Knowledge Vault permission.
 | `/report` | Turn the current work into a clear, evidence-based report. |
 | `/status` | See the branch, pending changes, active WIP, and open questions. |
 | `/task` | Handle a general-purpose software or laptop task, with reusable workflow memory and `vscode` and `dev` branches. |
+| `/deployment-check` | Analyze deployment readiness, report blockers and warnings, and suggest next steps without modifying the project until you approve. |
 
 Commands are intentionally short entry points into larger, repeatable
 workflows.
