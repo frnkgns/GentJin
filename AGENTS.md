@@ -32,6 +32,17 @@
 - Never modify production credentials, secrets, or environment files unless explicitly requested.
 - Never perform destructive operations when the target environment is uncertain.
 
+## GitHub Pushes
+
+When the user asks to push to GitHub (or any remote):
+
+- Check the current branch first.
+- If the current branch is `main`, `development`, `production`, or another protected/shared branch, create a new branch before pushing. Never push directly to those branches.
+- Inspect the repository's existing branches to detect a naming convention. If the repo has its own format, follow it (for example GENTJIN uses `GJ-<number>-<description>`).
+- If the repository has no branch format, default to `<project-initials>-<zero-padded-increment>-<description>` (for example `GJ-01-changes-in-here`, `GJ-02-changes-in-here`).
+- Show the user the exact branch name you plan to create and ask for explicit approval before creating it, committing on it, or pushing. If the user rejects the proposed name, let them type their own branch name.
+- After approval, create the branch, make a focused commit, and push with upstream tracking (`git push -u origin <branch>`).
+
 ## OpenCode Configuration
 
 - Treat the user's global `opencode.jsonc` as user-owned configuration.
