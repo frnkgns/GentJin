@@ -350,6 +350,7 @@ skills/api-design/SKILL.md
 skills/architecture-review/SKILL.md
 skills/backend-review/SKILL.md
 skills/cleanup/SKILL.md
+skills/compaction/SKILL.md
 skills/database-review/SKILL.md
 skills/dependency-review/SKILL.md
 skills/frontend-review/SKILL.md

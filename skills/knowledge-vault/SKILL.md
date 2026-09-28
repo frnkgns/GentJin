@@ -1221,7 +1221,8 @@ Never rely on conversation history or on a compaction summary as the only record
 of meaningful knowledge. Persist engineering meaning during normal work, keep
 `current.md` current enough to resume interrupted work, and update the daily
 session note at meaningful milestones. Recover the engineering state, not every
-keystroke.
+keystroke. See `compaction` for how temporary working context is condensed and
+handed off here only when it passes the significance test.
 
 Use Git as supporting evidence: repository, branch, commit, and changed files
 give the "what changed on this branch" answers. Notes supply the reasoning

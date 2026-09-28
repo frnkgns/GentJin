@@ -44,7 +44,7 @@ Do not load every skill for every task. Existing trigger examples remain as dete
 
 Skill selection is not a one-time decision. After every meaningful milestone, discovery, failure, scope change, or completed workstream, reassess: did the task reveal an API concern, an architectural consequence, a dependency risk, a defect needing root-cause analysis, new ambiguity, or a change in deployment risk? Is another review now useful, has durable knowledge been created, has active WIP materially changed, or has work become independent enough to delegate?
 
-If another installed skill has become materially relevant, load and follow it at that point.
+If another installed skill has become materially relevant, load and follow it at that point. When context accumulates repeated discussion, obsolete reasoning, or topic drift that obscures the current goal, load `compaction` to condense working context and route unfinished work to WIP and durable findings to the vault.
 
 ## Agent Delegation
 
@@ -68,9 +68,9 @@ Never store conversational filler, trivial edits, temporary chatter, or transcri
 
 For substantial unfinished work, keep WIP reasonably current throughout the task, using milestone-level updates rather than per-edit writes. Update it when there is a meaningful change to completed or remaining work, implementation state, blockers, decisions, rejected approaches, verification state, relevant files, or the immediate next action.
 
-Preserve the mandatory pause behavior: when the user indicates pause, hold, stop for now, continue later, or equivalent intent, then before the normal reply load `work-in-progress`, bring the relevant WIP current, persist outstanding durable knowledge, record exactly one useful immediate next action, and verify that persistence succeeded. Never claim state was saved when it was not.
+Preserve the mandatory pause behavior: when the user indicates pause, hold, stop for now, continue later, or equivalent intent, then before the normal reply load `work-in-progress` and `compaction`, triage context into unfinished work (→ WIP), durable knowledge (→ `knowledge-vault`), and disposable temporary context, bring the relevant WIP current, persist outstanding durable knowledge, record exactly one useful immediate next action, and verify that persistence succeeded. Never claim state was saved when it was not.
 
-On resume, locate the relevant WIP, read the smallest relevant durable knowledge, inspect current source, reconcile stored knowledge with current reality, reassess applicable skills and delegation, and continue from the recorded next action when it is still valid. Current source always wins over a stale note.
+On resume, locate the relevant WIP, read the smallest relevant durable knowledge, inspect current source, reconcile stored knowledge with current reality, reassess applicable skills and delegation, and continue from the recorded next action when it is still valid. Rebuild working context from WIP plus relevant vault entries plus current source per `compaction`; treat any prior compacted summary as low-authority working memory, never as truth. Current source always wins over a stale note.
 
 ## Orchestration Checkpoints
 
@@ -79,6 +79,21 @@ On resume, locate the relevant WIP, read the smallest relevant durable knowledge
 - **Completion or pause:** flush durable knowledge, update WIP appropriately, verify the actual work, reconcile agent output, and never claim success that was not verified.
 
 The work cycle is: understand goal, read relevant knowledge, decompose, select skills, evaluate delegation, execute or delegate, integrate findings, capture knowledge, update WIP if materially changed, verify, reassess, then continue or report. This is a behavioral model, not a requirement to print internal reasoning.
+
+## Compaction, WIP, and Vault Cooperation
+
+Three separate responsibilities, one cooperation flow:
+
+- **Compaction** = short-term compressed memory. Condense older conversation and work context into a small working summary. Reconstructable, lowest authority, expires when work moves on.
+- **WIP** = task continuity. Unfinished state, blockers, and the next action in `work-in-progress/current.md`.
+- **Knowledge Vault** = long-term project memory. Architectural decisions, conventions, root causes, and meaningful discoveries in canonical notes.
+
+```text
+conversation → compaction → active working context
+compaction → work-in-progress or knowledge-vault when appropriate
+```
+
+Source-of-truth hierarchy, highest first: `current source code → explicit user instructions → WIP/current task → Knowledge Vault → compacted context`. Compaction hands durable facts to the vault and unfinished work to WIP, then owns only the temporary remainder by pointer. Never store the same fact authoritatively in all three systems. Load `compaction` when context grows large; load `work-in-progress` and `knowledge-vault` for what must survive it.
 
 ## Codebase Learning and Standards
 
@@ -244,6 +259,7 @@ Finish and preserve:
 - `git-workflow` - Git status/diff/history review, branch/commit conventions, and guarded source-control actions.
 - `knowledge-vault` - project discovery, vault structure, note retrieval, note capture, migration, ADRs, questions, enhancements, and sessions.
 - `work-in-progress` - pause, resume, active WIP tracking, completion, and next-action preservation.
+- `compaction` - short-term context condensing, WIP/vault triage, and lean resume rebuilding.
 - `reporting` - change reports, cleanup reports, report titles, report evidence, and console/vault report formats.
 
 Review coordination:
