@@ -1,19 +1,19 @@
 ---
 name: database-review
-description: Review database, query, API/server-function, loader/action, and data-layer changes for correctness, performance, authorization, connection failures, and migration safety. MUST be used before creating or modifying schema or migrations, before any database write, and whenever queries, data access, or backend data flow change, including during cleanup.
+description: Review database, query, schema, migration, and data-layer changes for correctness, query-level performance, authorization, data integrity, and connection failures. MUST be used before creating or modifying schema or migrations, before any database write, and whenever queries or data access change, including during cleanup. Not for handler, service, job, retry, or idempotency concerns; use `backend-review` for those.
 ---
 
 # Database Review
 
 ## Safety Default
 
-Database interaction is read-only by default and restricted to SELECT queries against clone/dev databases unless the user explicitly grants write access for the task. Never INSERT, UPDATE, DELETE, ALTER, DROP, TRUNCATE, create tables, apply migrations, or perform destructive operations without explicit authorization.
+The global `## Safety` rules in AGENTS.md govern database access: read-only SELECT against clone or dev databases by default, and no write, DDL, migration, or destructive operation without explicit authorization. Schema or migration work requires an explicit request, and production credentials and secrets are never touched.
 
-Do not create/modify/run migrations as a side effect. Schema/migration work requires an explicit request. Prefer small, reviewable, reversible migrations and prepare them in code without applying to live databases unless explicitly requested. Never touch production credentials/secrets.
+Prefer small, reviewable, reversible migrations, prepared in code rather than applied to a live database unless explicitly requested.
 
 ## Query and Data-Layer Review
 
-For changed queries, APIs, server functions, loaders, actions, or fetching:
+For changed queries, loaders, actions, or the data-access portion of a fetching path:
 
 - Avoid N+1 queries and duplicate requests.
 - Avoid unnecessary columns/records.
@@ -49,4 +49,4 @@ For database, API, network, or external-service failures:
 Keep schema/query changes synchronized with relevant architecture, decisions, modules, patterns, bugs, or WIP notes when reusable knowledge changes.
 
 ## Related Skills
-Keep query correctness, data integrity, schema behavior, query-level performance, migration safety, and read/write safety here. Use `backend-review` for handler and service concerns such as retries, idempotency, and resource cleanup; `performance-review` for cross-stack measurement and caching methodology; `dependency-review` for ORM or driver changes.
+Keep query correctness, data integrity, schema behavior, query-level performance, migration safety, and read/write safety here. Use `backend-review` for handler and service concerns such as server functions, retries, idempotency, and resource cleanup; `api-design` for error-contract shape and versioning; `performance-review` for cross-stack measurement and caching methodology; `dependency-review` for ORM or driver changes.

@@ -287,18 +287,21 @@ of asking the agent to remember every rule at once.
 | Skill | Focus |
 | --- | --- |
 | `requirements-review` | Ambiguity, constraints, conflicts, and acceptance criteria before implementation. |
-| `architecture-review` | Structural changes, module boundaries, data flow, migration paths, and new-project scaffolding. |
+| `architecture-review` | Cross-module structural changes, boundaries, data flow, and new-project scaffolding. |
 | `project-conventions` | Learn an existing codebase, follow its conventions, and reuse what already exists. |
+| `refactoring-migration` | Staged execution of large refactors, data or contract migrations, dual-write, and flag lifecycle. |
 | `frontend-review` | Responsive UI, accessibility, UX states, and frontend performance. |
 | `backend-review` | Handlers, services, jobs, webhooks, async behavior, retries, and idempotency. |
 | `database-review` | Queries, data layers, performance, failures, and migration safety. |
 | `api-design` | Request/response contracts, validation, pagination, and versioning. |
 | `integration-review` | Defects at the seams between layers and systems. |
 | `systematic-debugging` | Root-cause workflow for broken behavior and regressions. |
+| `incident-response` | Live production impact: severity, mitigation, rollback, timeline, and hotfix discipline. |
 | `test-strategy` | Risk-driven decisions about what to test and at which level. |
 | `security-review` | Authentication, authorization, secrets, input, and data integrity. |
 | `performance-review` | Evidence-based measurement, bottlenecks, and safe optimization. |
 | `dependency-review` | Dependency additions, upgrades, and replacement risk. |
+| `deployment-readiness` | Build and CI, environment parity, migration safety, rollback, and secret exposure. |
 | `review-orchestrator` | Shared engine behind the review commands; delegates to the skills above. |
 | `cleanup` | Pre-merge QA, debugging, cleanup, and production readiness. |
 | `git-workflow` | Guarded branches, commits, pull requests, and source control. |
@@ -385,12 +388,15 @@ GENTJIN is designed to make the cautious path the easy path:
 │   ├── compaction/
 │   ├── database-review/
 │   ├── dependency-review/
+│   ├── deployment-readiness/
 │   ├── frontend-review/
 │   ├── git-workflow/
+│   ├── incident-response/
 │   ├── integration-review/
 │   ├── knowledge-vault/
 │   ├── performance-review/
 │   ├── project-conventions/
+│   ├── refactoring-migration/
 │   ├── reporting/
 │   ├── requirements-review/
 │   ├── review-orchestrator/

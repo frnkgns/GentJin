@@ -26,9 +26,18 @@ Discover actual project commands from `.project-agent.md`, package metadata, or 
 When relevant, invoke/apply:
 - `frontend-review` for changed UI/UX.
 - `backend-review` for handlers, services, jobs, webhooks, or external integrations.
-- `database-review` for queries, APIs, server functions, schema/data work.
+- `database-review` for queries, schema, or data work.
 - `security-review` for auth, permissions, sensitive data, mutations, or external input.
 - `integration-review` when the change crosses a layer boundary.
+- `api-design` for contracts, pagination, versioning, or error shapes.
+- `architecture-review` for cross-module or structural risk.
+- `refactoring-migration` when the diff is part of a staged migration or flag lifecycle.
+- `test-strategy` when verification is missing or insufficient.
+- `systematic-debugging` when a finding needs a root cause.
+- `performance-review` when cost is measurable and suspicious.
+- `dependency-review` when dependencies change.
+- `deployment-readiness` when the change is about to ship or touches deploy or migration safety.
+- `incident-response` when the finding is live production impact.
 
 For a full read-only analysis of the changes, use `/changes-review`. Cleanup finishes the work the user is completing; it is not a second review workflow.
 

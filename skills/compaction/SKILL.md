@@ -170,35 +170,26 @@ A compacted summary is a hypothesis about prior state. Before acting on it,
 spot-check the active files and the WIP next action against current source.
 If the code moved on, discard the stale part and continue from the code.
 
-## Pause Integration
+## Pause and Resume Integration
 
-`/pause` separates state before stopping. Follow `work-in-progress` for the
-pause, and use this skill for the triage step inside it:
+`/pause` and `/resume` own the full procedure; this skill supplies the triage
+step they need. Follow `work-in-progress` for the workflow itself, and use this
+skill for the sorting that happens inside it.
 
-1. Compact the thread to find what is unfinished, durable, or disposable.
-2. Sync unfinished work into WIP with exactly one next action.
-3. Flush durable knowledge through `knowledge-vault` while fresh.
-4. Let the compacted summary hold only the temporary remainder.
-5. Append the continuity entry to `sessions/YYYY-MM-DD.md`.
+For pause: compact the thread to identify what is unfinished, durable, or
+disposable, then hand each category to its owner — unfinished work to WIP with
+exactly one next action, durable knowledge to the vault while it is fresh, and
+the temporary remainder to the compacted summary.
+
+For resume: load `work-in-progress/current.md` first as the canonical resume
+point, then only the vault notes that WIP points at, then inspect current
+source. Source wins over the summary, WIP, and the vault alike; correct stale
+notes rather than propagating them. Treat any prior compacted summary as a
+low-authority hint and re-verify its assumptions before acting.
 
 WIP plus the session note must be sufficient to resume even if the compacted
-summary is lost.
-
-## Resume Integration
-
-`/resume` rebuilds context; it never trusts an old summary blindly. Follow
-`work-in-progress` for the resume, and use this skill as follows:
-
-1. Load `work-in-progress/current.md` first; it is the canonical resume point.
-2. Load only the relevant vault notes the WIP points at.
-3. Inspect current source and reconcile: source wins over summary, WIP, and
-   vault alike. Correct stale notes rather than propagating them.
-4. Treat any prior compacted summary as a low-authority hint. Re-verify its
-   assumptions and next action before acting.
-5. Write a fresh lean summary only if the rebuilt context is itself large.
-
-Do not restart settled investigation, and do not ask the user to restate
-decisions already recorded in WIP or the vault.
+summary is lost. Do not restart settled investigation, and do not ask the user
+to restate decisions already recorded in WIP or the vault.
 
 ## Anti-Duplication and Staleness Rules
 

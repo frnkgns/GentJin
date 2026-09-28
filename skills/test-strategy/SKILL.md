@@ -1,6 +1,6 @@
 ---
 name: test-strategy
-description: Decide what should be tested and at which level before or during implementation. Use when implementing a meaningful feature, fixing a regression, creating or changing tests, touching payment/auth/data-integrity logic, when a review finds insufficient verification, or when the user asks what needs testing.
+description: Decide what should be tested and at which level before or during implementation. Use when implementing a meaningful feature, creating or changing tests, touching payment/auth/data-integrity logic, when a review finds insufficient verification, or when the user asks what needs testing. For an unexplained failure or regression, load `systematic-debugging` first to find the cause, then this skill to cover the fix.
 ---
 # Test Strategy
 

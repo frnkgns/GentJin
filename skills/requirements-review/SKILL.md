@@ -1,6 +1,6 @@
 ---
 name: requirements-review
-description: Clarify ambiguous requests, missing constraints, conflicting rules, and acceptance criteria before implementation. Use when a feature request is vague, business rules are incomplete, more than one interpretation is possible, implementation would require guessing, or the request affects existing workflows, data, or integrations.
+description: Clarify ambiguous requests, missing constraints, conflicting rules, and acceptance criteria before implementation. Use when a feature request is vague, business rules are incomplete, more than one interpretation is genuinely plausible, or implementation would require guessing a decision that changes the result. Not for ordinary requests that are already clear enough to build.
 ---
 # Requirements Review
 

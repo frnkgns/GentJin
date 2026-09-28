@@ -1,6 +1,6 @@
 ---
 name: project-conventions
-description: Learn an existing codebase before changing it, then match its conventions and reuse what already exists. MUST be used before implementing meaningful changes in an existing project, and when creating any component, route, endpoint, server function, hook, query, validation helper, or utility. Also use when new code could plausibly duplicate an existing implementation.
+description: Learn an existing codebase before changing it, then match its conventions, write human-readable self-documenting code without added comments, and reuse what already exists. MUST be used before implementing meaningful changes in an existing project, and when creating any component, route, endpoint, server function, hook, query, validation helper, or utility. Also use when new code could plausibly duplicate an existing implementation.
 ---
 # Project Conventions
 
@@ -25,7 +25,28 @@ Project-local conventions are the default implementation standard: export style,
 
 Do not rewrite a consistent, valid project style into a generic best-practice style. Consistency with the existing codebase is part of correctness.
 
-Write human-readable code: descriptive names, straightforward control flow, minimal nesting, small focused functions, comments that explain why. Avoid clever one-liners, giant mixed-responsibility functions, magic values, and abstraction for its own sake.
+Write human-readable code: descriptive names, straightforward control flow, minimal nesting, small focused functions, and clear self-documenting code. Avoid clever one-liners, giant mixed-responsibility functions, magic values, and abstraction for its own sake.
+
+## Comments
+
+Do not add comments to new or modified code. The code must read as plainly as the surrounding project code without them.
+
+Match the surrounding file. If neighbouring code is sparsely commented, new code is sparsely commented. If the project documents a public API, keep that documentation. Do not import the comment density of a different project into a consistent one.
+
+Add a comment only when:
+
+- the user explicitly asks for one; or
+- a genuinely non-obvious constraint would be unsafe to leave unexplained, such as a required workaround, a non-obvious external constraint, or a deliberate deviation from the obvious approach.
+
+Never add:
+
+- section banners, file headers, or author/version blocks;
+- comments that restate the code, such as `// increment counter` above `counter++`;
+- commented-out code, and never keep stale commented-out code while editing a file;
+- "why this works" narration of straightforward logic;
+- markers referring to the change itself, such as "new", "changed", or "TODO: fix later".
+
+Prefer making the code self-documenting: descriptive names, well-named small functions, and early returns. When a block needs explanation, extract it into a well-named function instead of annotating it inline.
 
 ## Search Before Create
 

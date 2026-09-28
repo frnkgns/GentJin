@@ -1,6 +1,6 @@
 ---
 name: architecture-review
-description: Analyze significant structural changes before implementing them. Use when adding a subsystem, redesigning a major flow, changing authentication architecture, introducing workers/queues/background services, integrating an external provider, creating shared infrastructure, changing module communication, scaffolding a new project or its first feature, splitting a feature that mixes responsibilities, or when the user asks how something should be built.
+description: Analyze significant cross-module or process-level structural changes before implementing them. Use when adding a subsystem, redesigning a major flow, changing authentication architecture, introducing workers/queues/background services, integrating an external provider, creating shared infrastructure, changing module boundaries or communication, scaffolding a new project or its first feature, or when the user asks how something should be built. Not for matching or reusing existing code patterns within a known structure; use `project-conventions` for that.
 ---
 # Architecture Review
 

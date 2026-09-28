@@ -1,6 +1,6 @@
 ---
 name: review-orchestrator
-description: Shared comprehensive review engine for the review commands. Use when running /changes-review or /project-review, or when a full multi-layer review is requested, to map scope, delegate to the relevant specialized skills, and produce one evidence-based report.
+description: Shared comprehensive review engine for the review commands. Use when `/changes-review` or `/project-review` is invoked, or when the user explicitly asks for a full multi-layer or whole-codebase review, to map scope, delegate to the relevant specialized skills, and produce one evidence-based report. Not for single-file or single-layer review; use the specific review skill directly.
 ---
 # Review Orchestrator
 
@@ -28,10 +28,14 @@ Load only the skills the detected code actually needs:
 - `security-review` for authentication, authorization, secrets, input, and sensitive logging.
 - `integration-review` for the seams between layers.
 - `api-design` for contracts, pagination, versioning, and error shapes.
-- `architecture-review` for structural risk in the change.
+- `architecture-review` for cross-module or structural risk in the change.
+- `refactoring-migration` when the change is a staged migration, expand-contract, or flag lifecycle.
 - `test-strategy` when verification is missing or insufficient.
-- `performance-review` when measurement is available or cost is suspicious.
+- `systematic-debugging` when a finding needs a root cause rather than a guess.
+- `performance-review` when cost is measurable and suspicious.
 - `dependency-review` when dependencies change.
+- `deployment-readiness` when the change is about to ship or touches deploy, environment, or migration safety.
+- `incident-response` when the finding is live production impact rather than a code defect.
 
 Do not run every skill because it exists. A CSS-only change does not need database review; a query change does not need frontend review.
 
