@@ -10,4 +10,4 @@ Determine what counts as "the changes", strongest evidence first:
 2. The session's work when source control has nothing pending: if the tree is clean or the directory is not a Git repository, base the report on the task the user asked for, the files touched, and the notes captured in the vault (WIP, session notes, inbox, bugs, enhancements, decisions).
 3. If no verifiable changes exist, state that explicitly instead of inventing content.
 
-Produce two outputs with the same title: a detailed report saved into the vault under `reports/`, and a concise console report following the `## Response Format` section of the global instructions.
+Produce two outputs with the same title: a detailed report saved into the vault under `reports/`, and a concise console report following the `## Response Format` section of the global instructions. Console must be non-technical and readable by every reader; keep all technical detail in the vault report only.

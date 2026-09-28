@@ -18,11 +18,12 @@ Derive a short title from the feature/system/backlog item. Use the backlog item'
 
 ## Default Report Style
 Use a simple implementation-list style:
-- Plain-language, scannable bullets starting with action verbs.
+- Plain-language, scannable bullets starting with action verbs (Made, Added, Improved, Updated, Standardized, Fixed).
 - Cover meaningful scope such as navigation, pages/forms, business rules, authorization, fixes, and verification.
 - Avoid repetitive What Changed/Why/Impact boilerplate unless a detailed/technical report is explicitly requested.
+- Group related edits by user-visible outcome, not by file. One outcome per bullet.
 
-The vault report starts with `# <Report Title>` and date. It should be complete permanent documentation and include applicable scope, meaningful changes, files/modules, DB/API/UI/UX, responsive work, bugs/root causes, tests, type/lint/build status, performance, fallbacks, security, limitations, and follow-up.
+The vault report starts with `# <Report Title>` and date. It should be complete permanent documentation and include applicable scope, meaningful changes, files/modules, DB/API/UI/UX, responsive work, bugs/root causes, tests, type/lint/build status, performance, fallbacks, security, limitations, and follow-up. Keep all file paths, function/constant names, and implementation jargon in the vault report.
 
 ## Console Report
 Print a concise version, not the full vault report:
@@ -44,6 +45,12 @@ Suggestions
 ```
 
 `Changes` is required. Include Testing only if checks ran, Issues only for unresolved limitations, and Suggestions only when useful.
+
+Console readability rules (apply to every `/report`):
+- `Changes`: 5-9 bullets max. Group related edits into one outcome bullet. Merge minor polish into one `Minor UI polish` bullet or omit if not user-visible.
+- Each bullet: under ~25 words, start with an action verb, describe what the reader can now do or see.
+- Never include file paths, filenames, function/constant/component names, or implementation jargon (aria-*, debounce, infinite scroll, UTC, constants, helpers) in console. Translate internals to plain benefit.
+- Keep Testing/Issues/Suggestions to one line each, plain language, no stack traces or code.
 
 ## Accuracy
 Never claim work, testing, build success, or optimization that was not actually performed/verified. State unavailable verification clearly.
