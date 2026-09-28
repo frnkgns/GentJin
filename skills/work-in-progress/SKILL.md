@@ -43,6 +43,8 @@ Topic WIP notes may continue alongside it when several workstreams run in parall
 
 `current.md` and the daily session note together must contain enough state to resume after an interruption or a compaction without the previous conversation.
 
+Cooperation: WIP owns unfinished state and the next action. When context grows large, `compaction` condenses the thread and hands unfinished work here and durable findings to `knowledge-vault`; it never replaces this note. On resume, rebuild from this note plus relevant vault notes plus current source rather than trusting an old compacted summary.
+
 ## Pause
 When the user says pause, save where we are, continue later/tomorrow/next time, or equivalent:
 1. Find/create the relevant WIP.

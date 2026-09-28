@@ -131,8 +131,28 @@ That means these work in plain conversation, with no command:
 A briefing stays compact — latest work, completed, key decisions, issues and
 discoveries, still in progress, next recommended step — and never presents an
 older session as current when Git or WIP shows newer work. Git is evidence for
-what changed; the notes hold the reasoning. Compaction or a closed session does
-not lose the engineering state.
+what changed; the notes hold the reasoning.
+
+Three systems cooperate without duplicating each other:
+
+```text
+conversation → compaction → active working context
+compaction → work-in-progress or knowledge-vault when appropriate
+```
+
+- **Compaction** = short-term compressed memory. Reconstructable working recall,
+  lowest authority, expires when work moves on.
+- **WIP** = task continuity. Unfinished state, blockers, and the next action.
+- **Knowledge Vault** = long-term project memory. Decisions, conventions, root
+  causes, and meaningful discoveries.
+
+Authority runs `current source code → user instructions → WIP → Knowledge
+Vault → compacted context`. Compaction hands durable facts to the vault and
+unfinished work to WIP, then keeps only the temporary remainder by pointer.
+`/pause` separates state into those three buckets; `/resume` rebuilds from
+WIP plus relevant vault notes plus current source rather than trusting an old
+summary. A compaction or a closed session therefore does not lose the
+engineering state.
 
 ## Memory retrieval
 
@@ -283,6 +303,7 @@ of asking the agent to remember every rule at once.
 | `cleanup` | Pre-merge QA, debugging, cleanup, and production readiness. |
 | `git-workflow` | Guarded branches, commits, pull requests, and source control. |
 | `work-in-progress` | Pause, resume, and preserve unfinished implementation work. |
+| `compaction` | Condense older context into a lean working summary; route WIP and durable knowledge outward. |
 | `knowledge-vault` | Project discovery and persistent knowledge in the Knowledge Vault. |
 | `reporting` | Concise console reports and durable vault documentation. |
 
@@ -361,6 +382,7 @@ GENTJIN is designed to make the cautious path the easy path:
 │   ├── architecture-review/
 │   ├── backend-review/
 │   ├── cleanup/
+│   ├── compaction/
 │   ├── database-review/
 │   ├── dependency-review/
 │   ├── frontend-review/
