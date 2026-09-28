@@ -1,5 +1,5 @@
 ---
-description: Analyze the current project's deployment readiness, report blockers and warnings, and provide suggested next steps. The command does not modify the project unless the user explicitly approves a recommended implementation afterward.
+description: Analyze the current project's deployment readiness using the `deployment-readiness` skill, report blockers and warnings, and provide suggested next steps. The command does not modify the project unless the user explicitly approves a recommended implementation afterward.
 ---
 
 Perform a comprehensive deployment-readiness analysis of the current project. The first invocation is always analysis-first and read-only: it must NOT edit files, apply fixes, change configuration, run destructive operations, deploy, commit, push, or modify project behavior. Follow this rule:

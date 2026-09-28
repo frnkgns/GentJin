@@ -1,6 +1,6 @@
 ---
 name: knowledge-vault
-description: Manage persistent project knowledge in the user's Knowledge Vault, including project/vault discovery, note-first lookup, vault initialization and normalization, automatic knowledge capture, architecture and ADRs, patterns, bugs, enhancements, investigations, work-in-progress, sessions, reports, and migration. MUST be used when durable knowledge is established during a task, even when the user never asks for notes, and when the user says "remember this", "save this workflow", or "don't do that again". Never store transcripts, secrets, or cheap-to-rediscover information.
+description: Manage persistent project knowledge in the user's Knowledge Vault, including project/vault discovery, note-first lookup, vault initialization and normalization, automatic knowledge capture, architecture and ADRs, patterns, bugs, enhancements, investigations, work-in-progress, sessions, reports, and migration. MUST be used when durable knowledge is established during a task, even when the user never asks for notes, and when the user says "remember this", "save this workflow", or "don't do that again". This is a core GENTJIN system, not an optional extra: prefer capturing a useful note over skipping one. Never store transcripts, secrets, or cheap-to-rediscover information.
 ---
 
 # Knowledge Vault
@@ -58,15 +58,9 @@ If the user reports that a workflow did not work, do not mark it verified or cre
 
 ## Knowledge Vault Migration
 
-When the legacy `~/Documents/ObsidianVault/` directory exists and `~/Documents/KnowledgeVault/` does not, and the user explicitly authorizes the migration:
+The legacy-to-canonical vault rename is an install-time concern, not a runtime one. It is owned by the `install-gentjin` and `update-gentjin` commands and by `INSTALL.md`. Do not perform a vault directory rename during ordinary work.
 
-1. Verify the source is a directory and the destination does not exist.
-2. Rename only the vault directory; preserve all notes and hidden vault metadata.
-3. Update only the Obsidian application's saved vault path when explicitly authorized.
-4. Never rename, move, or modify the Obsidian application installation or unrelated application folders.
-5. Verify the destination, note count, and saved path after the rename.
-
-If the destination already exists, do not merge directories automatically; report the conflict and ask before proceeding. GENTJIN installation may perform this same guarded migration only after explicit user approval, and only when Obsidian is closed.
+When you encounter an obviously legacy vault layout *inside* a project vault, normalize the internal structure per the mapping below. Never rename or move the vault directory itself as a side effect of ordinary knowledge work.
 
 ## Vault Initialization
 

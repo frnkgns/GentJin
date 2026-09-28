@@ -353,12 +353,15 @@ skills/cleanup/SKILL.md
 skills/compaction/SKILL.md
 skills/database-review/SKILL.md
 skills/dependency-review/SKILL.md
+skills/deployment-readiness/SKILL.md
 skills/frontend-review/SKILL.md
 skills/git-workflow/SKILL.md
+skills/incident-response/SKILL.md
 skills/integration-review/SKILL.md
 skills/knowledge-vault/SKILL.md
 skills/performance-review/SKILL.md
 skills/project-conventions/SKILL.md
+skills/refactoring-migration/SKILL.md
 skills/reporting/SKILL.md
 skills/requirements-review/SKILL.md
 skills/review-orchestrator/SKILL.md

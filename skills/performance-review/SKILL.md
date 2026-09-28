@@ -1,6 +1,6 @@
 ---
 name: performance-review
-description: Find real performance problems using measurement instead of speculation. Use when performance is reported as an issue, when the user asks for optimization, when a review spots potentially expensive behavior, or when a change affects rendering, queries, networking, caching, or repeated work.
+description: Find real performance problems using measurement instead of speculation. Use when performance is reported as an issue, the user asks for optimization, a review spots potentially expensive behavior, or a change is suspected of causing a measurable slowdown. Owns cross-stack methodology for caching, N+1 behavior, and resource leaks; use `frontend-review` for render performance and `database-review` for query cost.
 ---
 # Performance Review
 
