@@ -68,6 +68,12 @@ Maximize capture, because the memory systems are the core of this framework. Dur
 
 Never ask permission before capturing. The user is not required to say "remember this", "take notes", or "pause" for knowledge to be written.
 
+**Enforcement.** A directive with no observable output gets skipped silently, which is exactly what happened once already. Three mechanisms make capture observable instead of aspirational:
+
+1. **Required output.** Every console report and every task response carries a `Notes` section. It names each note created, updated, or corrected, or states that no durable knowledge was established and why. Reporting completion without it is a defect, not a style choice.
+2. **Ordered gate.** The `reporting` skill runs the note sweep *before* writing the report, so capture is a step in a workflow that already runs rather than a separate thing to remember.
+3. **Correct in place.** When a note is stale, fix it where it is. A vault full of contradicting notes is worse than a smaller correct one.
+
 ## Active WIP Is Continuous
 
 For substantial unfinished work, keep WIP reasonably current throughout the task, using milestone-level updates rather than per-edit writes. Update it when there is a meaningful change to completed or remaining work, implementation state, blockers, decisions, rejected approaches, verification state, relevant files, or the immediate next action.
@@ -288,4 +294,6 @@ For meaningful implementation work:
 
 ## Response Format
 
-For normal development tasks: `Summary:` with the short result, then `Details:` with the complete relevant details, then a `Suggestion:` line only when useful. No introductions, no filler.
+For normal development tasks: `Summary:` with the short result, then `Details:` with the complete relevant details, then a `Suggestion:` line only when useful, then `Notes:` naming each knowledge note created, updated, or corrected. No introductions, no filler.
+
+`Notes:` is required on every response. Name notes by their plain-language subject, not by path. If nothing durable was established, write `None — no durable knowledge established` and say why in one clause.
