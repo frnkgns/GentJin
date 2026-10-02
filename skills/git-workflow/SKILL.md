@@ -14,6 +14,16 @@ Before a requested commit or source-control change:
 ## Repository Conventions
 Detect and follow the repository's own branch naming format rather than inventing one. If it has none, use the default from the global `## GitHub Pushes` rules and continue its sequence. Stage only the files belonging to the logical change.
 
+## Jira Backlog Title
+When the branch name matches `^[A-Z]+-\d+-(.+)$`, derive the Jira title from the description: split on `-`, uppercase any word of two characters or fewer, capitalize the rest, and join with spaces.
+
+```text
+GX-33-be-fix-sales-journey-medicare-admission-count
+  → BE Fix Sales Journey Medicare Admission Count
+```
+
+Do not derive a title from a branch that does not match, or from a protected branch. Always show the derived title and let the user confirm or correct it before it is used.
+
 The `/git-push` command implements this workflow end to end.
 
 ## Commits
