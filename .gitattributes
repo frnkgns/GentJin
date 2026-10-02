@@ -1,0 +1,5 @@
+* text=auto
+
+*.md   text eol=crlf
+*.yaml text eol=crlf
+*.jsonc text eol=crlf
